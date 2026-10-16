@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff0f5">
+<title>For Noqianita ♡</title>
+
+<style>
+:root {
+  --pink: #f6b9cc;
+  --rose: #c85d83;
+  --ink: #674454;
+  --cream: #fffaf8;
+  --blush: #fff0f5;
+  --lilac: #e8dafa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  overflow-x: hidden;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 30px 20px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 20% 15%, #fff 0, transparent 35%),
+    linear-gradient(145deg, #fff5f8, #fce1eb 55%, #f4e9ff);
+}
+
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: .55;
+  animation: float 7s ease-in-out infinite;
+}
+
+.g1 {
+  width: 180px;
+  height: 180px;
+  background: #fff;
+  top: 8%;
+  left: -60px;
+}
+
+.g2 {
+  width: 220px;
+  height: 220px;
+  background: #f8cfe0;
+  bottom: 0;
+  right: -80px;
+  animation-delay: -3s;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-20px) translateX(12px);
+  }
+}
+
+.hero-inner {
+  position: relative;
+  max-width: 720px;
+  z-index: 1;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .25em;
+  font: 11px Arial, sans-serif;
+  color: #b76b89;
+}
+
+.tiny-heart {
+  font-size: 30px;
+  color: #d7799c;
+  display: block;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(1.14);
+  }
+}
+
+h1 {
+  font-size: clamp(42px, 9vw, 86px);
+  font-weight: normal;
+  line-height: 1.03;
+  margin: 18px 0;
+  color: #9d4f70;
+  letter-spacing: -.04em;
+}
+
+.subtitle {
+  font-size: clamp(16px, 3vw, 21px);
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 20px auto 28px;
+}
+
+.date {
+  font: 12px Arial, sans-serif;
+  letter-spacing: .16em;
+  color: #b76b89;
+  margin-bottom: 28px;
+}
+
+.btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 23px;
+  background: #b75c80;
+  color: white;
+  box-shadow: 0 8px 22px #b75c802b;
+  transition: .2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background: #9f496c;
+}
+
+.secondary {
+  background: #fff;
+  color: #a74f73;
+  border: 1px solid #f0bfd0;
+  box-shadow: none;
+}
+
+.scrollhint {
+  margin-top: 42px;
+  font: 11px Arial, sans-serif;
+  letter-spacing: .18em;
+  color: #b76b89;
+}
+
+/* SECTION UMUM */
+section {
+  padding: 84px 20px;
+}
+
+.wrap {
+  max-width: 900px;
+  margin: auto;
+}
+
+.section-kicker {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  font: 10px Arial, sans-serif;
+  color: #bd7892;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(30px, 6vw, 48px);
+  font-weight: normal;
+  margin: 12px 0 18px;
+  color: #9d4f70;
+}
+
+.intro {
+  text-align: center;
+  max-width: 590px;
+  margin: 0 auto 35px;
+  line-height: 1.8;
+  font-size: 17px;
+}
+
+/* GALERI FOTO */
+.memories {
+  background: #fff;
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.memory {
+  background: #fff7fa;
+  padding: 12px 12px 20px;
+  box-shadow: 0 8px 30px #7f40500d;
+  transform: rotate(-1deg);
+  min-width: 0;
+}
+
+.memory:nth-child(2) {
+  transform: rotate(1.5deg);
+  margin-top: 22px;
+}
+
+.memory:nth-child(3) {
+  transform: rotate(-.5deg);
+}
+
+/* UKURAN BINGKAI FOTO */
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: linear-gradient(145deg, #f8dce7, #f7eaff);
+}
+
+/* FOTO OTOMATIS MEMENUHI BINGKAI */
+.photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform .4s ease;
+}
+
+.memory:hover .photo-placeholder img {
+  transform: scale(1.04);
+}
+
+.caption {
+  text-align: center;
+  font-size: 15px;
+  margin-top: 13px;
+  line-height: 1.5;
+}
+
+/* ALASAN MENYAYANGIMU */
+.reasons {
+  background: linear-gradient(150deg, #fff0f5, #fbf2ff);
+}
+
+.reason-card {
+  max-width: 620px;
+  margin: 28px auto;
+  background: #fffdfd;
+  border: 1px solid #f6dbe5;
+  border-radius: 22px;
+  padding: 30px 25px;
+  text-align: center;
+  box-shadow: 0 14px 45px #a95d7810;
+}
+
+.reason-number {
+  font: 11px Arial, sans-serif;
+  letter-spacing: .2em;
+  color: #c17b96;
+}
+
+.reason-text {
+  font-size: clamp(21px, 4vw, 29px);
+  line-height: 1.5;
+  min-height: 90px;
+  display: grid;
+  place-items: center;
+  margin: 18px 0;
+}
+
+/* SURAT */
+.letter {
+  background: #fffaf8;
+}
+
+.envelope-area {
+  text-align: center;
+  margin: 30px auto;
+}
+
+.envelope {
+  display: inline-grid;
+  place-items: center;
+  width: 190px;
+  height: 135px;
+  background: #f7c8d9;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 12px 30px #9e536b1b;
+  transition: .3s;
+}
+
+.envelope:hover {
+  transform: translateY(-5px);
+}
+
+.envelope:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fce4ec;
+  clip-path: polygon(0 0, 50% 55%, 100% 0);
+}
+
+.seal {
+  position: relative;
+  z-index: 1;
+  background: #b75c80;
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  font-size: 21px;
+}
+
+.letter-paper {
+  display: none;
+  max-width: 650px;
+  margin: 25px auto 0;
+  padding: clamp(24px, 5vw, 45px);
+  background: #fff;
+  border: 1px solid #f2dce4;
+  box-shadow: 0 15px 40px #a95d7810;
+  line-height: 1.9;
+  font-size: 17px;
+  white-space: pre-line;
+}
+
+.letter-paper.open {
+  display: block;
+  animation: appear .6s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* KEJUTAN ULANG TAHUN */
+.wish {
+  background: #fff;
+  text-align: center;
+}
+
+.cake {
+  font-size: 70px;
+  filter: drop-shadow(0 8px 8px #d78da433);
+}
+
+.wish-note {
+  line-height: 1.8;
+  max-width: 520px;
+  margin: 15px auto 25px;
+}
+
+.surprise {
+  display: none;
+  margin: 28px auto 0;
+  max-width: 600px;
+  font-size: 22px;
+  line-height: 1.6;
+  color: #a04f72;
+}
+
+.surprise.show {
+  display: block;
+  animation: appear .7s ease;
+}
+
+/* FOOTER DAN ANIMASI */
+footer {
+  text-align: center;
+  padding: 35px 20px;
+  background: #f9e2eb;
+  color: #a15b78;
+  font-size: 14px;
+}
+
+.sparkle {
+  position: fixed;
+  top: -20px;
+  pointer-events: none;
+  z-index: 10;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(420deg);
+    opacity: .2;
+  }
+}
+
+/* TAMPILAN HP */
+@media (max-width: 650px) {
+  .memory-grid {
+    grid-template-columns: 1fr;
+    max-width: 340px;
+    margin: auto;
+  }
+
+  .memory:nth-child(2) {
+    margin-top: 0;
+  }
+
+  .memory {
+    transform: none !important;
+  }
+
+  .photo-placeholder {
+    aspect-ratio: 5 / 3;
+  }
+
+  .hero {
+    min-height: 92svh;
+  }
+
+  section {
+    padding: 65px 18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIK ULANG TAHUN -->
+<audio id="romanticMusic" loop preload="auto">
+    <source src="Musik1.mpeg" type="audio/mpeg">
+</audio>
+
+<button id="musicButton" onclick="toggleMusic()"
+    style="
+        position: fixed;
+        bottom: 22px;
+        right: 22px;
+        z-index: 999;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #f0bfd0;
+        border-radius: 50%;
+        background: #fff0f5;
+        color: #a74f73;
+        font-size: 22px;
+        box-shadow: 0 4px 15px #b75c802b;
+        cursor: pointer;
+    "
+    title="Putar musik">
+    ▶
+</button>
+
+<!-- HALAMAN PEMBUKA -->
+<header class="hero">
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+
+  <div class="hero-inner">
+    <span class="tiny-heart">♡</span>
+
+    <div class="eyebrow">
+      a little something made for you
+    </div>
+
+    <h1>
+      Happy Birthday,<br>
+      <em>Noqianita Rizka Abella</em>
+    </h1>
+
+    <div class="date">
+      17 OKTOBER 2003 · MY FAVORITE PERSON
+    </div>
+
+    <p class="subtitle">
+      Hari ini adalah hari ulang tahunmu dan mijik ingin ikut
+      merayakan seseorang yang begitu berarti dalam hidup mijik.
+    </p>
+
+    <button class="btn"
+      onclick="document.querySelector('#memories').scrollIntoView({behavior:'smooth'})">
+      Buka hadiah kecilmu ♡
+    </button>
+
+    <div class="scrollhint">Bismillah</div>
+  </div>
+</header>
+
+<!-- CHAPTER ONE: FOTO KENANGAN -->
+<section class="memories" id="memories">
+  <div class="wrap">
+
+    <div class="section-kicker">
+      chapter one · momen kita bersama
+    </div>
+
+    <h2 class="section-title">
+      Our little universe
+    </h2>
+
+    <p class="intro">
+      Bab ini berisi momen-momen perjalanan mijik dan bwell
+      dari awal ketemu sampai sejauh ini. Banyak hal, susah senang telah
+      dilewati bersama.
+    </p>
+
+    <div class="memory-grid">
+
+      <!-- FOTO PERTAMA -->
+      <div class="memory">
+        <div class="photo-placeholder">
+          <img src="xx1.jpeg"
+               alt="Kenangan pertama kita"
+               loading="lazy">
+        </div>
+        <div class="caption">
+          mijik wisuda
+        </div>
+      </div>
+
+      <!-- FOTO KEDUA -->
+      <div class="memory">
+        <div class="photo-placeholder">
+          <img src="xx3.jpeg"
+               alt="Momen favorit kita"
+               loading="lazy">
+        </div>
+        <div class="caption">
+          Jaman-jaman belum kenal nailong
+        </div>
+      </div>
+
+      <!-- FOTO KETIGA -->
+      <div class="memory">
+        <div class="photo-placeholder">
+          <img src="xx2.jpeg"
+               alt="Kenangan kesayangan"
+               loading="lazy">
+        </div>
+        <div class="caption">
+          My favorite kind of day
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER TWO: ALASAN MENYAYANGIMU -->
+<section class="reasons">
+  <div class="wrap">
+
+    <div class="section-kicker">
+      chapter two · personallity
+    </div>
+
+    <h2 class="section-title">
+      A few things I adore about you
+    </h2>
+
+    <p class="intro">
+      Cinta memang tak butuh alasan, namun ada hal yang mungkin tidak selalu sempat aku ucapkan.
+      Tekan tombol ini, baca satu per satu ya sengg.
+    </p>
+
+    <div class="reason-card">
+      <div class="reason-number" id="reasonCount">
+        NOTE 01 / 05
+      </div>
+
+      <div class="reason-text" id="reasonText">
+        Senyummu punya cara sendiri untuk membuat hari terasa lebih baik.
+      </div>
+
+      <button class="btn secondary" onclick="nextReason()">
+        Buka pesan berikutnya ♡
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- CHAPTER THREE: SURAT CINTA -->
+<section class="letter">
+  <div class="wrap">
+
+    <div class="section-kicker">
+      chapter three · from my heart
+    </div>
+
+    <h2 class="section-title">
+      A letter for you
+    </h2>
+
+    <p class="intro">
+      Ada surat kecil yang sengaja aku simpan di sini.
+      Buka saat bwell sudah siappp mwehehe ♡
+    </p>
+
+    <div class="envelope-area">
+
+      <button class="envelope"
+        aria-label="Buka surat"
+        onclick="openLetter()">
+        <span class="seal">♡</span>
+      </button>
+
+      <p>
+        <button class="btn" onclick="openLetter()">
+          Klikkk yee
+        </button>
+      </p>
+
+    </div>
+
+    <article class="letter-paper" id="letterPaper">Untuk Noqianita Rizka Abella,
+
+Selamat ulang tahun yang ke-23, bwellku sayang. ♡♡♡
+
+Di hari spesialmu ini, mijik berharap kamu selalu punya alasan untuk tersenyum dan keberanian untuk mengejar hal-hal yang bwelll impikan. Terima kasih sudah menjadi dirimu sendiri dengan semua hal kecil yang membuatmu istimewa.
+
+Semoga dengan bertambahnya usia ini kamu menjadi pribadi yang lebih baik, selalu diberi kesehatan dan kebahagiaan, selalu di beri kemudahan oleh Allah, dilancarkan rezeki dan segala urusannya, dan yang pasti semoga panjang umur mwehehehe ♡♡
+
+Mijik bersyukur bisa kenal dan menemani bwelll sampe skrng. Banyak momen susah dan senang kita hadapi bersama, selalu ada ketika mijik butuh, selalu mengerti keadaan mijik dari dulu sampe skrng, dan yang pasti bwell adalah sosok wanita kuat yang berjuang sampai detik ini, berjuang melawan skripsi dan berjuang mengalahkan skill uno mijik yang jauh diatas bwelll contohnya wkwkwkwkwk
+
+Happy birthday, a day as special as you ♡♡
+Semoga kedepannya hubungan kita menjadi lebih baik, canda tawa dan romantis yang membuat hubungan ini menjadi hidup dan terus bertahan sampai sejauh ini, mijik disini masih setia dan selalu mengusahakan bwelll yang terbaik. 
+
+I love you bwelll ku sayanggg ♡♡♡♡♡</article>
+
+  </div>
+</section>
+
+<!-- KEJUTAN TERAKHIR -->
+<section class="wish">
+  <div class="wrap">
+
+    <div class="section-kicker">
+      the final little surprise
+    </div>
+
+    <h2 class="section-title">
+      Make a wish, birthday girl
+    </h2>
+
+    <div class="cake">🎂</div>
+
+    <p class="wish-note">
+      Pejamkan mata bwelll sebentar, buat satu permohonan paling tulus,
+      lalu tekan tombol di bawah. Anggap ini lilin kecil yang
+      menyimpan harapan baik untuk bwell.
+    </p>
+
+    <button class="btn" onclick="makeWish()">
+      TEKANNNNNN ✨
+    </button>
+
+    <div class="surprise" id="surprise">
+      ✨ Semoga satu per satu hal baik menemukan jalannya kepadamu.
+      Semoga kamu selalu sehat, bahagia, dan cukup
+      menjadi dirimu sendiri.
+
+      <br><br>
+
+      <strong>
+        Happy birthday, Noqianita Rizkabwellong.
+        You deserve so much happiness. ♡
+      </strong>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  Made with love, just for Noqianita ♡
+  <br>
+  <small>one little page · a thousand feelings</small>
+</footer>
+
+<script>
+const reasons = [
+  "Senyum dan suara merdumu punya cara sendiri untuk membuat hari terasa lebih baik.",
+  "Bwell yang kuat, sabar, penuh perjuangan, dan selalu berusaha menjadi yang terbaik. Aku suka caramu menjadi dirimu sendiri, tanpa harus menjadi orang lain.",
+  "Selalu menghargai waktu, selalu ada ketika mijik butuh, tapi ga penyabar 😤.",
+  "Setia menemani mijik dari 0 sampai sekarang, wanita yang percaya pada proses, setia selalu membersamai yang membuat hati tenang dan bahagia.",
+  "Aku bersyukur bisa mengenalmu dan ikut menyaksikan ceritamu bertumbuh. ♡"
+];
+
+let reasonIndex = 0;
+
+function nextReason() {
+  reasonIndex = (reasonIndex + 1) % reasons.length;
+
+  document.getElementById('reasonText').textContent =
+    reasons[reasonIndex];
+
+  document.getElementById('reasonCount').textContent =
+    `NOTE ${String(reasonIndex + 1).padStart(2, '0')} / 05`;
+
+  if (reasonIndex === 0) {
+    confetti(12);
+  }
+}
+
+function openLetter() {
+  const el = document.getElementById('letterPaper');
+
+  el.classList.add('open');
+
+  el.scrollIntoView({
+    behavior: 'smooth',
+    block: 'center'
+  });
+
+  confetti(18);
+}
+
+function makeWish() {
+  document.getElementById('surprise').classList.add('show');
+  confetti(45);
+}
+
+function confetti(n) {
+  const symbols = ['♡', '✦', '✿', '♥', '✨'];
+
+  for (let i = 0; i < n; i++) {
+    const s = document.createElement('span');
+
+    s.className = 'sparkle';
+
+    s.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    s.style.left = Math.random() * 100 + 'vw';
+
+    s.style.color = [
+      '#cf7195',
+      '#e8a6bd',
+      '#b89adf'
+    ][Math.floor(Math.random() * 3)];
+
+    s.style.fontSize = (12 + Math.random() * 18) + 'px';
+
+    s.style.animationDuration = (3 + Math.random() * 3) + 's';
+
+    document.body.appendChild(s);
+
+    setTimeout(() => s.remove(), 6500);
+  }
+}
+
+// KONTROL MUSIK
+const music = document.getElementById("romanticMusic");
+const musicButton = document.getElementById("musicButton");
+
+async function toggleMusic() {
+    if (music.paused) {
+        try {
+            await music.play();
+            musicButton.textContent = "♫";
+            musicButton.title = "Jeda musik";
+            musicButton.style.background = "#f7c8d9";
+        } catch (error) {
+            alert("Musik belum bisa diputar. Pastikan file romantis.mp3 tersedia.");
+        }
+    } else {
+        music.pause();
+        musicButton.textContent = "▶";
+        musicButton.title = "Putar musik";
+        musicButton.style.background = "#fff0f5";
+    }
+}
+</script>
+
+</body>
+</html>
